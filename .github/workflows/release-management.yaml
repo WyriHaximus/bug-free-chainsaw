@@ -1,0 +1,28 @@
+name: Release Management
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+      - reopened
+      - milestoned
+      - demilestoned
+      - ready_for_review
+  milestone:
+    types:
+      - closed
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  packages: write
+jobs:
+  release-managment:
+    name: Release Management
+    secrets: inherit
+    uses: WyriHaximus/github-workflows/.github/workflows/project-release-management.yaml@put-tags-back-on-their-branches
+    with:
+      milestone: ${{ github.event.milestone.title }}
+      description: ${{ github.event.milestone.description }}
