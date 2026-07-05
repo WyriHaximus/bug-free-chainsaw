@@ -1,2 +1,2 @@
-# Bug Free 🔗🪚
+# 🐛 Free 🔗🪚
 Test out `github-workflows` release changes
